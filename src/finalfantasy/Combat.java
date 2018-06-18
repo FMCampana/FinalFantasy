@@ -139,6 +139,8 @@ if(cdeath==false&&ic!=null)g.drawImage(ic.getImage(),(int)w*1/5,(int)h*7/12,null
     void battle(Character one, Character two, 
             Character three, Character four, monster a, monster b, monster c, Party party, monster dispMon){
         
+        Music battleMusic = new Music("ff7_battle_theme.mid");
+    
         int count1 = 0;
         int count2 = 0;
         int count3 = 0;
@@ -222,10 +224,14 @@ if(cdeath==false&&ic!=null)g.drawImage(ic.getImage(),(int)w*1/5,(int)h*7/12,null
             
         }
             Victory victory = new Victory();
-        if(monsterDeathCheck==3)
+        if(monsterDeathCheck==3){
+            battleMusic.terminate();
             victory.obtainVictory(worth, one, two, three, four, party,battleScreen,rest);
-        else if(partyDeathCheck==4)
+        }
+        else if(partyDeathCheck==4){
+            battleMusic.terminate();
             victory.lose(b.image);
+        }
     }
     
     int battleCheck(monster a, monster b, monster c, Character one, Character two, Character three, Character four,

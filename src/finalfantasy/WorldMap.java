@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class WorldMap extends JPanel{
     int difficulty=1, validChoice;
     Scanner kb = new Scanner(System.in);
-    ArrayList locations = new ArrayList();
+    ArrayList<String> locations = new ArrayList<String>();
     Random generator = new Random();
     boolean fiendsSlain=false;//true when all fiends are slain, needed to enter final battle
     //boolean fiendsSlain=true;
@@ -77,6 +77,8 @@ public class WorldMap extends JPanel{
     void navigate(Party party, Character one, Character two, Character three, Character four){
     validChoice=0;
     
+    Music worldMapMusic = new Music("Terra.wav");
+    
     JFrame mapScreen = new JFrame("World Map");
         mapScreen.setBounds(150, 25,backdrop.getWidth(this),backdrop.getHeight(this));
         mapScreen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -104,6 +106,7 @@ public class WorldMap extends JPanel{
     
         if(input==locations.size()){//random battle
             int battleType=generator.nextInt(difficulty);
+            worldMapMusic.terminate();
             switch(battleType){
                 case 1:
         monster d = new monster("Pirate A");

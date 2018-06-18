@@ -4,56 +4,15 @@
  */
 package finalfantasy;
 
-import java.awt.Color;
-import java.util.*;
-import java.awt.*;
 import javax.swing.*;
-import java.io.*;
-import sun.audio.*;
 /**
  *
  * @author karanshukla
  */
 public class FinalFantasy extends JPanel{
-
-    /**
-     * @param args the command line arguments
-     */
-          /*public static void music(){
-              AudioPlayer MGP = AudioPlayer.player;
-              ContinuousAudioDataStream loop=null;
-              AudioStream BGM;
-                      
-              try{
-              BGM = new AudioStream(new FileInputStream("edison.wav"));
-              AudioData MD=BGM.getData();
-              loop=new ContinuousAudioDataStream(MD);}
-              
-              catch(IOException error){
-			error.printStackTrace();}
-                  MGP.start(loop);
-          }*/
-    
-   /* private static void playSound() 
-{
-  try
-  {
-    // get the sound file as a resource out of my jar file;
-    // the sound file must be in the same directory as this class file.
-    // the input stream portion of this recipe comes from a javaworld.com article.
-    InputStream inputStream = getClass().getResourceAsStream("Terra.wav");
-    AudioStream audioStream = new AudioStream(inputStream);
-    AudioPlayer.player.start(audioStream);
-  }
-  catch (Exception error)
-  {
-    error.printStackTrace();;
-  }
-}*/
           
     public static void main(String[] args) {
-        // TODO code application logic here
-        Scanner kb = new Scanner(System.in);
+      
         int input, choice;
         
        //Most of the following is character generation

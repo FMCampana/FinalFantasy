@@ -13,7 +13,7 @@ import java.awt.Component.*;
  */
 public class Party {
     int gil, input;
-    ArrayList itemList = new ArrayList();
+    ArrayList<String> itemList = new ArrayList<String>();
     ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
     ArrayList<Armor> armorList = new ArrayList<Armor>();
     Random generator = new Random();
@@ -34,7 +34,7 @@ public class Party {
     int useItem(Character one, Character two, Character three, Character four, Character user,monster a,monster b,monster c){
         int validChoice=0;
         
-        ArrayList tempItemList = itemList;
+        ArrayList<String> tempItemList = itemList;
         if(!tempItemList.get(tempItemList.size()-1).equals("Return"))//if return is already in the arralist, don't add it!
         tempItemList.add("Return");
         Object[] tempItems = new String[tempItemList.size()+1];

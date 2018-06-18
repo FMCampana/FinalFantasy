@@ -4,7 +4,6 @@
  */
 package finalfantasy;
 
-import java.awt.Font;
 import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
