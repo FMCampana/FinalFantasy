@@ -57,10 +57,10 @@ public class Combat extends JPanel{
             Image bd) {
         
         backdrop=bd;
-        i1=one.image;
-        i2=two.image;
-        i3=three.image;
-        i4=four.image;
+        i1=one.imageicon;
+        i2=two.imageicon;
+        i3=three.imageicon;
+        i4=four.imageicon;
         ia=a.image;
         ib=b.image;
         ic=c.image;
@@ -116,10 +116,10 @@ if(cdeath==false&&ic!=null)g.drawImage(ic.getImage(),(int)w*1/5,(int)h*7/12,null
         
         if(self.job==6)//Red Mages have 2 job abilities instead of one, and thus need a special interface
             return 1+JOptionPane.showOptionDialog(null, "Input commands for " + self.name + " (HP: " + self.tempHP + "/" + self.hp + ") (Status: "+status+")", 
-                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, self.image, self.commandsRed, self.commandsRed[0]);
+                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, self.imageicon, self.commandsRed, self.commandsRed[0]);
         else
             return 1+JOptionPane.showOptionDialog(null, "Input commands for " + self.name + " (HP: " + self.tempHP + "/" + self.hp + ") (Status: "+status+")", 
-                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, self.image, self.commands, self.commands[0]);
+                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, self.imageicon, self.commands, self.commands[0]);
 }
     
     

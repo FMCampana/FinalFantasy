@@ -41,7 +41,7 @@ public class Party {
         tempItems=tempItemList.toArray();
         
         int input = JOptionPane.showOptionDialog(null, "Select an item.", "Battle!", JOptionPane.DEFAULT_OPTION, 
-                JOptionPane.QUESTION_MESSAGE, user.image, tempItems, tempItems[0]);
+                JOptionPane.QUESTION_MESSAGE, user.imageicon, tempItems, tempItems[0]);
         
         if("Potion".equals(itemList.get(input))){//heals a party member for 40 points
                 
@@ -58,7 +58,7 @@ public class Party {
             members[x]="Return";
         
             int target= JOptionPane.showOptionDialog(null, "Select a character to use the "+itemList.get(input)+" on:", 
-                "Final Fantasy", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, user.image, members, members[0]);
+                "Final Fantasy", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, user.imageicon, members, members[0]);
             
             if(members[target].equals(one.name + " (HP: " + one.tempHP + "/" + one.hp +")")&&one.death==0){one.getHit(-40,null);validChoice=1;remove("item","Potion");}
             else if(members[target].equals(two.name + " (HP: " + two.tempHP + "/" + two.hp +")")&&two.death==0){two.getHit(-40,null);validChoice=1;remove("Item","Potion");}
@@ -86,7 +86,7 @@ public class Party {
             members[x]="Return";
             
             int target= JOptionPane.showOptionDialog(null, "Select a character to use the "+itemList.get(input)+" on:", 
-                "Final Fantasy", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, user.image, members, members[0]);
+                "Final Fantasy", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, user.imageicon, members, members[0]);
             
             if(members[target].equals(one.name + " (HP: " + one.tempHP + "/" + one.hp +")")&&one.death==1){one.revive();validChoice=1;remove("Item","Phoenix Down");}
             else if(members[target].equals(two.name + " (HP: " + two.tempHP + "/" + two.hp +")")&&two.death==1){two.revive();validChoice=1;remove("Item","Phoenix Down");}
@@ -156,7 +156,7 @@ public class Party {
             //weaponArray = temporary String array of weapon names + Return
             
         input= JOptionPane.showOptionDialog(null, "Select a weapon:", 
-                "Equip Screen", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, new ImageIcon("mog.gif"), 
+                "Equip Screen", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, ImageFetcher.fetchIcon("mog.gif"), 
                 weaponArray, weaponArray[0]);
        String weaponName;
         if(!weaponArray[input].equals("None")&&!weaponArray[input].equals("Return")){
@@ -171,7 +171,7 @@ public class Party {
             while(character!=4){//as long as the player does not select Return
             
             character= JOptionPane.showOptionDialog(null, "Select a character:", 
-                "Equip Screen", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, new ImageIcon("mog.gif"), 
+                "Equip Screen", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, ImageFetcher.fetchIcon("mog.gif"), 
                 characterArray, characterArray[4]);
             
             Character selectedChar=null;
@@ -191,7 +191,7 @@ public class Party {
                     remove("Weapon",input);;//removes weapon from inventory
                     break;}//breaks out of the while loop once a weapon has been equipped
                 else
-                JOptionPane.showMessageDialog(null, selectedChar.name+" cannot equip " + weaponArray[input], "Equip Screen", 0, selectedChar.image);
+                JOptionPane.showMessageDialog(null, selectedChar.name+" cannot equip " + weaponArray[input], "Equip Screen", 0, selectedChar.imageicon);
             
             }
             }
@@ -204,7 +204,7 @@ public class Party {
     
     void addWeapon(String y){
         weaponList.add(new Weapon(y));
-        JOptionPane.showMessageDialog(null, "Obtained "+y+"!\n\nCurrent gil: "+gil, "You got a weapon!", JOptionPane.INFORMATION_MESSAGE,new ImageIcon("mog.gif"));
+        JOptionPane.showMessageDialog(null, "Obtained "+y+"!\n\nCurrent gil: "+gil, "You got a weapon!", JOptionPane.INFORMATION_MESSAGE, ImageFetcher.fetchIcon("mog.gif"));
     }
     
     void addGil(int g){
@@ -240,7 +240,7 @@ public class Party {
         int choice=0;
         while(choice!=5){
             choice= JOptionPane.showOptionDialog(null, "Your gil: "+gil+"\nYour items: "+itemList+"\nYour weapons: "+weaponListToString()+"\nYour armor: "+armorListToString(), 
-                "Party Info", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, new ImageIcon("mog.gif"), members, members[5]);
+                "Party Info", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, ImageFetcher.fetchIcon("Mog.gif"), members, members[5]);
             if(choice==0)
                 one.display();
             if(choice==1)

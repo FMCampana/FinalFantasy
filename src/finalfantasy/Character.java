@@ -26,7 +26,7 @@ public class Character {
     Weapon weapon=new Weapon("None");
     Armor armor=new Armor("None");
             
-    ImageIcon image;
+    ImageIcon imageicon;
     boolean focus=false,blind=false;
     Random generator = new Random();
     Scanner kb = new Scanner(System.in);
@@ -63,7 +63,7 @@ public class Character {
         int command = combat.input(this,a,b,c);//This is the interface for combat
         
         if(command<1){//if no input was given, turn is skipped
-            JOptionPane.showMessageDialog(null,name + " did nothing.","Battle!",JOptionPane.DEFAULT_OPTION,image);
+            JOptionPane.showMessageDialog(null,name + " did nothing.","Battle!",JOptionPane.DEFAULT_OPTION,imageicon);
             validChoice=1;}
            
         else if(command==1){
@@ -91,7 +91,7 @@ public class Character {
                 enemies[x]="Return";
             
             int target=JOptionPane.showOptionDialog(null, "Choose which monster to attack.", 
-                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, image, enemies, enemies[0]);
+                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, imageicon, enemies, enemies[0]);
 
             for(monster targeted:foes){
             if(enemies[target].startsWith(targeted.name)&&targeted.death==0){
@@ -124,7 +124,7 @@ public class Character {
            
            if(gilOrItem){
            System.out.println(name + " stole " + steal + " gil!");
-            JOptionPane.showMessageDialog(null,name + " stole " + steal + " gil!","Battle!",JOptionPane.DEFAULT_OPTION,image);
+            JOptionPane.showMessageDialog(null,name + " stole " + steal + " gil!","Battle!",JOptionPane.DEFAULT_OPTION,imageicon);
            party.addGil(steal);}
            
            if(!gilOrItem){
@@ -132,27 +132,27 @@ public class Character {
             item="Potion";
                if(steal>=lv*15)
             item="Phoenix Down";
-            JOptionPane.showMessageDialog(null,name + " stole " + item + "!","Battle!",JOptionPane.DEFAULT_OPTION,image);
+            JOptionPane.showMessageDialog(null,name + " stole " + item + "!","Battle!",JOptionPane.DEFAULT_OPTION,imageicon);
             party.addItem(item);}
            
            validChoice=1;}
         else if(command==2 && ability.equalsIgnoreCase("Cover")){
            if(combat.cover!=covername){
-            JOptionPane.showMessageDialog(null,name + " is covering the party!","Battle!",JOptionPane.DEFAULT_OPTION,image);
+            JOptionPane.showMessageDialog(null,name + " is covering the party!","Battle!",JOptionPane.DEFAULT_OPTION,imageicon);
            combat.cover(covername);
            validChoice=1;}
            else{
-            JOptionPane.showMessageDialog(null,name + " is no longer covering the party!","Battle!",JOptionPane.DEFAULT_OPTION,image);
+            JOptionPane.showMessageDialog(null,name + " is no longer covering the party!","Battle!",JOptionPane.DEFAULT_OPTION,imageicon);
            combat.cover(0);//removes cover
            validChoice=2;
            }}
         else if(command==2 && ability.equalsIgnoreCase("Focus")){
             if(focus==false){
-            JOptionPane.showMessageDialog(null,name + " is focusing!","Battle!",JOptionPane.DEFAULT_OPTION,image);
+            JOptionPane.showMessageDialog(null,name + " is focusing!","Battle!",JOptionPane.DEFAULT_OPTION,imageicon);
            focus = true;
            validChoice=1;}
             else{
-            JOptionPane.showMessageDialog(null,name + " is already focusing!","Battle!",JOptionPane.DEFAULT_OPTION,image);
+            JOptionPane.showMessageDialog(null,name + " is already focusing!","Battle!",JOptionPane.DEFAULT_OPTION,imageicon);
            validChoice=2;
             }}
         else if(command==3 && job!=6){//item use
@@ -185,16 +185,16 @@ public class Character {
             
             if(a.death==0){cure = caster.mag-generator.nextInt(5);
                 a.getHit(-cure,null);//heal based on cure value
-                message[0]=new JLabel(a.name+" was healed for "+cure+" points!",a.image,SwingConstants.LEFT);}
+                message[0]=new JLabel(a.name+" was healed for "+cure+" points!",a.imageicon,SwingConstants.LEFT);}
             if(b.death==0){cure = caster.mag-generator.nextInt(5);
                 b.getHit(-cure,null);//heal based on cure value
-                message[1]=new JLabel(b.name+" was healed for "+cure+" points!",b.image,SwingConstants.LEFT);}
+                message[1]=new JLabel(b.name+" was healed for "+cure+" points!",b.imageicon,SwingConstants.LEFT);}
             if(c.death==0){cure = caster.mag-generator.nextInt(5);
                 c.getHit(-cure,null);//heal based on cure value
-                message[2]=new JLabel(c.name+" was healed for "+cure+" points!",c.image,SwingConstants.LEFT);}
+                message[2]=new JLabel(c.name+" was healed for "+cure+" points!",c.imageicon,SwingConstants.LEFT);}
             if(d.death==0){cure = caster.mag-generator.nextInt(5);
                 d.getHit(-cure,null);//heal based on cure value
-                message[3]=new JLabel(d.name+" was healed for "+cure+" points!",d.image,SwingConstants.LEFT);}
+                message[3]=new JLabel(d.name+" was healed for "+cure+" points!",d.imageicon,SwingConstants.LEFT);}
             if(cura)
                 JOptionPane.showMessageDialog(null,message,caster.name+" used the Cura Scroll!",JOptionPane.DEFAULT_OPTION);
             else
@@ -206,7 +206,7 @@ public class Character {
         Weapon oldWeapon = weapon;
         weapon = newWeapon;
         
-        JOptionPane.showMessageDialog(null,name+" equipped the " + newWeapon.name,"Final Fantasy",JOptionPane.DEFAULT_OPTION, image);
+        JOptionPane.showMessageDialog(null,name+" equipped the " + newWeapon.name,"Final Fantasy",JOptionPane.DEFAULT_OPTION, imageicon);
             
         if(oldWeapon.bonusStat.equalsIgnoreCase("hp")){//removes bonus effect from old weapon
             hp-=weapon.bonus;rest();}
@@ -225,7 +225,7 @@ public class Character {
         Armor oldArmor = armor;
         armor = newArmor;
         
-        JOptionPane.showMessageDialog(null,name+" equipped the " + newArmor.name,"Final Fantasy",JOptionPane.DEFAULT_OPTION, image);
+        JOptionPane.showMessageDialog(null,name+" equipped the " + newArmor.name,"Final Fantasy",JOptionPane.DEFAULT_OPTION, imageicon);
          
         return oldArmor;//The old weapon is returned to the inventory, while the new one is equipped
     }
@@ -258,7 +258,7 @@ public class Character {
             message[0]=new JLabel(mon.name+" attacks!",mon.image,SwingConstants.LEFT);
             message[1]=new JLabel("");
             message[1]=new JLabel("");
-            message[2]=new JLabel(name + " took " + hit + " damage!",image,SwingConstants.LEFT);
+            message[2]=new JLabel(name + " took " + hit + " damage!",imageicon,SwingConstants.LEFT);
         if(tempHP<=0){//This occurs if damage exceeds temporary HP
             death=1;
             tempHP=0;
@@ -277,29 +277,24 @@ public class Character {
         if(classjob==1)
         {jobclass = "Warrior";
         job = classjob;
-        image = new ImageIcon("Warrior.png","Warrior");
     }   if(classjob==2)
         {jobclass = "Thief";
         job = classjob;
-        image = new ImageIcon("Thief.png","Thief");
     }   if(classjob==3)
         {jobclass = "Monk";
         job = classjob;
-        image = new ImageIcon("Monk.png","Monk");
     }   if(classjob==4)
         {jobclass = "BlackMage";
         job = classjob;
-        image = new ImageIcon("BlackMage.png","Black Mage");
     }   if(classjob==5)
         {jobclass = "WhiteMage";
         job = classjob;
-        image = new ImageIcon("WhiteMage.png","White Mage");
     }   if(classjob==6)
         {jobclass = "RedMage";
         job = classjob;
-        image = new ImageIcon("RedMage.png","Red Mage");
     }
-}
+        imageicon = ImageFetcher.fetchIcon(jobclass+".png", jobclass);
+    }
    
     void calculate(){//calculates stats
         if(job==1){
@@ -384,7 +379,7 @@ public class Character {
                 "\nLevel " + lv + "\nExp Until Next Level: " + exptillLV + "\nWeapon " + weapon.name + " (+" + weapon.power + " STR)"+
                 "\nHP " + tempHP + "/" + hp + "\nStrength " + tempstr+
                 "\nMagic " + mag + "\nAgility " + agi,
-                "Final Fantasy", JOptionPane.DEFAULT_OPTION, image);
+                "Final Fantasy", JOptionPane.DEFAULT_OPTION, imageicon);
     }
         
     void ability(){
