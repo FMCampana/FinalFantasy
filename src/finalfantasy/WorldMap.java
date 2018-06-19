@@ -36,13 +36,13 @@ public class WorldMap extends JPanel{
         locations.add("Cornelia");
         
         //following are for testing purposes
-        addPravoka();
-        addElfheim();
+//        addPravoka();
+//        addElfheim();
         addDungeon("Cavern of Earth");
-        addDungeon("Sunken Shrine");
-        addLufenia();
-        addCrescent();
-        addDungeon("Mount Gulug");
+//        addDungeon("Sunken Shrine");
+//        addLufenia();
+//        addCrescent();
+//        addDungeon("Mount Gulug");
     }
     
     void addDungeon(String dungeon){
@@ -214,7 +214,7 @@ public class WorldMap extends JPanel{
             locations.remove("Temple of Chaos");}
         else{//second visit
             JOptionPane.showMessageDialog(null, "Ah... I remember you. \n\nThe last time we fought I was much weaker. You may have noticed the destruction I have wrought since then. Terrible, isn't it?\n\nReady to fight again? Not so fast! My pretties would like to kill you first!", "Garland...?", JOptionPane.DEFAULT_OPTION,new ImageIcon("Garland.png"));
-            monster g = new monster("Lich the Unholy Troll");
+            monster g = new monster("Lich the Unholy");
             monster b = new monster("Kraken");
             monster c = new monster("");
             Combat garland = new Combat(one,two,three,four,g,b,c,new ImageIcon("Chaos_Shrine.png").getImage());
@@ -230,18 +230,19 @@ public class WorldMap extends JPanel{
             garland = new Combat(one,two,three,four,c,b,g,new ImageIcon("Final_Battle.png").getImage());
             garland.intro("Chaos",g);
             garland.battle(one,two,three,four,g,b,c,party,g,false);
-            JOptionPane.showMessageDialog(null, "What!?! No... this isn't possible... you've defeated me? Is this true?\n\nI was so powerful... what went wrong... \n\nnooooooooooooooo!!!!!!!!!!!!!!!!!!", "Chaos, King of Evil", JOptionPane.DEFAULT_OPTION,new ImageIcon("Chaos.png"));
+            JOptionPane.showMessageDialog(null, "What!?! No... how did you defeat me? \nI was so powerful... \nnooooooooooooooo!!!!!!!!!!!!!!!!", "Chaos, King of Evil", JOptionPane.DEFAULT_OPTION,new ImageIcon("Chaos.png"));
+            JOptionPane.showMessageDialog(null, "Congrats! You beat the game!", "Mog", JOptionPane.DEFAULT_OPTION,new ImageIcon("\"Mog.gif\""));
             
                 }
     }
     void cavernOfEarth(Character one, Character two, Character three, Character four, Party party){
-        monster g = new monster("Lich the Unholy Troll");
-        monster b = new monster("");
+        monster b = new monster("Lich the Unholy");
+        monster g = new monster("");
         monster c = new monster("");
         Combat lich = new Combat(one,two,three,four,b,c,g,new ImageIcon("Cavern_of_Earth.png").getImage());
-        lich.intro("Lich the Unholy Troll",g);
-        lich.battle(one,two,three,four,g,b,c,party,g);
-        JOptionPane.showMessageDialog(null, "After defeating the unholy troll, you return to Melmond.", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
+        lich.intro("Lich the Unholy",b);
+        lich.battle(one,two,three,four,g,b,c,party,b);
+        JOptionPane.showMessageDialog(null, "After defeating Lich, you return to Melmond.", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
         JOptionPane.showMessageDialog(null, "Thank you, Light Warriors! By the way, do you plan on visiting to the Sunken Shrine anytime soon?"
                 + " \n I would love to see the fabled Rosetta Stone hidden away down there. I'll even fund your research! \n\t*The Good Doctor gave you 300 gil*", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("dr_unne.png"));
         party.addGil(300);

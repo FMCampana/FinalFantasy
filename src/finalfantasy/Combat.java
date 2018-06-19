@@ -38,9 +38,9 @@ public class Combat extends JPanel{
         else if(name.equals("Bikke"))
             JOptionPane.showMessageDialog(null, "Bikke: Ye want to take back this port? Ye'll have to get through me first!", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
         else if(name.equals("Astos"))
-            JOptionPane.showMessageDialog(null, "Astos: You want to rescueThranduil Tasartir? You'll have to pay a ransom... a ransom of blood!", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
-        else if(name.equals("Lich the Unholy Troll"))
-            JOptionPane.showMessageDialog(null, "Lich the Unholy Troll: @!#%#$^@*#$%!#$", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
+            JOptionPane.showMessageDialog(null, "Astos: You want to rescue the elf prince? You'll have to pay a ransom... a ransom of blood!", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
+        else if(name.equals("Lich the Unholy"))
+            JOptionPane.showMessageDialog(null, "Lich the Unholy: @!#%#$^@*#$%!#$", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
         else if(name.equals("Kraken"))
             JOptionPane.showMessageDialog(null, "Kraken: Hohoho! Exploring the depths, I see.\nCan't let you roam in my waters!", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
         else if(name.equals("Marilith"))
@@ -64,14 +64,6 @@ public class Combat extends JPanel{
         ia=a.image;
         ib=b.image;
         ic=c.image;
-    
-        Character ek=one;
-        Character dough=two;
-        Character theen=three;
-        Character chaar=four;
-        monster ah=a;
-        monster beh=b;
-        monster se=c;
         }
         
         
