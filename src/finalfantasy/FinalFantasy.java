@@ -16,13 +16,7 @@ import sun.audio.*;
  */
 public class FinalFantasy extends JPanel{
 
-    /**
-     * @param args the command line arguments
-     */
-          
     public static void main(String[] args) {
-        // TODO code application logic here
-        Scanner kb = new Scanner(System.in);
         int input, choice;
         
        //Most of the following is character generation
@@ -51,6 +45,9 @@ public class FinalFantasy extends JPanel{
                     blackMage,
                     whiteMage,
                     redMage};
+        
+        
+        Music.play("prelude.mid");
         
         do{ //Character generation will loop until the player is satisfied
         

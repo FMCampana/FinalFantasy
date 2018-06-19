@@ -5,7 +5,7 @@ package finalfantasy;
 /*
  *	Title: Character
  *	Purpose: This class allows us to make Character objects that the player will control in battle throughout the course of the game.
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: lv (character level), str (physical attack strength), mag (magical attack strength), agi (used to determine turn order)
  *				job (Character's job class variable), hit (calc. of how much damage character will do), hp (health points), exp (determines level up),
@@ -30,7 +30,7 @@ package finalfantasy;
 
  *	Title: Monster
  *	Purpose: This class allows us to make monster objects that the player will fight in battle throughout the course of the game.
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: str (physical attack strength), mag (magical attack strength), agi (used to determine turn order)
  *				hit (calc. of how much damage character will do), hp (health points),
@@ -48,7 +48,7 @@ package finalfantasy;
 
  *	Title: Victory
  *	Purpose: This class determines if the party won the battle and gives a cash reward
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: gil (cash reward), exp (experience points)
  *
@@ -63,7 +63,7 @@ package finalfantasy;
 
  *	Title: Shop
  *	Purpose: This class creates Shops throughout the game that the player can buy things from
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: cost ()
  *		> Strings: location (determines what town player is in and adjusts items availible)
@@ -78,7 +78,7 @@ package finalfantasy;
 
  *	Title:World Map
  *	Purpose: This class is basically an object that connect's all the world's locations, acting as the game's hub.
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: difficulty (increments the enemies and their stats)
  *		> Strings: location (determines what town player is in and adjusts items availible)
@@ -92,7 +92,7 @@ package finalfantasy;
 
  *	Title: Party
  *	Purpose: This class holds the variables shared by the entire party of characters
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: gil (money shared by the party)
  *
@@ -112,7 +112,7 @@ package finalfantasy;
 
  *	Title: Town
  *	Purpose: This class contains the code that occurs when the player enters a town
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: input (player input deciding what action to take)
  *
@@ -129,7 +129,7 @@ package finalfantasy;
 
  *	Title: Combat
  *	Purpose: This class takes the character classes, as well as monster classes, and has them duke it out by using their stats and abilities to fight each other to the death!
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: input (player input for battle options), deathCheck (checks how many enemies have been killed, cover (checks if, and who, is covering the player party)
  *
@@ -145,7 +145,7 @@ package finalfantasy;
 
  *	Title: FinalFantasy
  *	Purpose: This class is the runner class and constructs the character and party classes, and is not used after the creation of the World Map.
- *	Author: Karan Shukla and Krishna Ramdeep
+ *	Author: Karan Shukla
  *	Class Variables:
  *		> ints: input (player input for options)
  *

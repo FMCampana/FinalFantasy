@@ -26,6 +26,7 @@ public class Victory {
     }
     
     void obtainVictory(int worth, Character one, Character two, Character three, Character four, Party party, JFrame battle, boolean rest){
+        Music.play("ff5victory.mid");
         battle.dispose();
         expGain=worth;
         gil=worth-15+generator.nextInt(30);
