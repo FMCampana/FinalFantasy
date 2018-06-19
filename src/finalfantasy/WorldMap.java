@@ -6,7 +6,6 @@ package finalfantasy;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.*;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,7 +19,6 @@ public class WorldMap extends JPanel{
     ArrayList<String> locations = new ArrayList<String>();
     Random generator = new Random();
     boolean fiendsSlain=false;//true when all fiends are slain, needed to enter final battle
-    //boolean fiendsSlain=true;
     
         Town cornelia = new Town("Cornelia");//Cornelia is the only town the player begins with
         Town pravoka,elfheim,melmond,lufenia,crescent;//the other towns are declared, but only created once unlocked
@@ -43,6 +41,7 @@ public class WorldMap extends JPanel{
 //        addLufenia();
 //        addCrescent();
 //        addDungeon("Mount Gulug");
+          //fiendsSlain=true;
     }
     
     void addDungeon(String dungeon){

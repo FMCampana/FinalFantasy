@@ -2,6 +2,7 @@ package finalfantasy;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class Music {
     private static Thread musicThread;
@@ -11,9 +12,11 @@ public class Music {
       if(musicThread != null) terminateCurrentTrack();
       try {
         //https://stackoverflow.com/tags/javasound/info
-        File musicFile = new File("music/"+musicFileName);
+        URL musicResource = Music.class.getClassLoader().getResource("music/"+musicFileName);
+//        File musicFile = new File("music/"+musicFileName);
+//        File musicFile = new File(musicResource);
         clip = AudioSystem.getClip();
-        AudioInputStream ais = AudioSystem.getAudioInputStream(musicFile);
+        AudioInputStream ais = AudioSystem.getAudioInputStream(musicResource);
         clip.open(ais);
         clip.loop(Clip.LOOP_CONTINUOUSLY);
         
