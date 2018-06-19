@@ -77,7 +77,7 @@ public class WorldMap extends JPanel{
     void navigate(Party party, Character one, Character two, Character three, Character four){
     validChoice=0;
     
-    Music worldMapMusic = new Music("Terra.wav");
+    Music.play("Terra.wav");
     
     JFrame mapScreen = new JFrame("World Map");
         mapScreen.setBounds(150, 25,backdrop.getWidth(this),backdrop.getHeight(this));
@@ -106,7 +106,6 @@ public class WorldMap extends JPanel{
     
         if(input==locations.size()){//random battle
             int battleType=generator.nextInt(difficulty);
-            worldMapMusic.terminate();
             switch(battleType){
                 case 1:
         monster d = new monster("Pirate A");

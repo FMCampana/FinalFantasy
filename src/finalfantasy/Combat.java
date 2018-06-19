@@ -29,6 +29,8 @@ public class Combat extends JPanel{
     boolean rest=true;
     
     Character ek,dough,theen,chaar,ah,beh,se;
+    
+    String[] battleThemes = {"ff7_battle_theme.mid", "ff4battl.mid", "ff5battl.mid", "ff6fierc.mid"};
         
     void intro (String name, monster b) {
         if(name.equals("Garland"))
@@ -139,7 +141,8 @@ if(cdeath==false&&ic!=null)g.drawImage(ic.getImage(),(int)w*1/5,(int)h*7/12,null
     void battle(Character one, Character two, 
             Character three, Character four, monster a, monster b, monster c, Party party, monster dispMon){
         
-        Music battleMusic = new Music("ff7_battle_theme.mid");
+        String battleTheme = battleThemes[new Random().nextInt(battleThemes.length)];
+        Music.play(battleTheme);
     
         int count1 = 0;
         int count2 = 0;
@@ -225,11 +228,9 @@ if(cdeath==false&&ic!=null)g.drawImage(ic.getImage(),(int)w*1/5,(int)h*7/12,null
         }
             Victory victory = new Victory();
         if(monsterDeathCheck==3){
-            battleMusic.terminate();
             victory.obtainVictory(worth, one, two, three, four, party,battleScreen,rest);
         }
         else if(partyDeathCheck==4){
-            battleMusic.terminate();
             victory.lose(b.image);
         }
     }

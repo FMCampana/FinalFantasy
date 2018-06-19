@@ -5,19 +5,21 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Music {
-    ReentrantLock lock = new ReentrantLock();
-    Music(String musicFileName){
+public final class Music {
+    //ReentrantLock lock = new ReentrantLock();
+    private Music(){}
+    public static void play(String musicFileName){
+      terminateCurrentTrack();
       try {
         //https://stackoverflow.com/tags/javasound/info
-        File musicFile = new File(musicFileName);
+        File musicFile = new File("music/"+musicFileName);
         Clip clip = AudioSystem.getClip();
         AudioInputStream ais = AudioSystem.getAudioInputStream(musicFile);
         clip.open(ais);
         clip.loop(Clip.LOOP_CONTINUOUSLY);
         SwingUtilities.invokeLater(new Runnable() {
           public void run() {
-            lock.lock();
+            //lock.lock();
           }
         });
       } catch (LineUnavailableException ex) {
@@ -29,7 +31,7 @@ public class Music {
       }
     }
     
-    public void terminate(){
-      lock.unlock();
+    private static void terminateCurrentTrack(){
+      //lock.unlock();
     }
 }
