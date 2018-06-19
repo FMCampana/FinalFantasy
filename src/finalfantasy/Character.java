@@ -96,7 +96,7 @@ public class Character {
             for(monster targeted:foes){
             if(enemies[target].startsWith(targeted.name)&&targeted.death==0){
                 if (focus==true){
-                    hit*=2.5;
+                    hit*=2.25;
                     focus=false;}
                 targeted.getHit(hit,true,name,weapon.weaponElement,miss);
                 validChoice=1;}
@@ -311,7 +311,7 @@ public class Character {
         hp = 35;
         str = 5;
         mag = 3;
-        agi = 8;
+        agi = 7;
     }   if(job==3){
         hp = 55;
         str = 10;

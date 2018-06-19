@@ -99,7 +99,7 @@ public class FinalFantasy extends JPanel{
         monster b = new monster("Goblin B");
         monster c = new monster("Goblin C");
         
-        JOptionPane.showMessageDialog(null, "Watch out! They're monsters nearby!", "Final Fantasy", JOptionPane.DEFAULT_OPTION, mog);
+        JOptionPane.showMessageDialog(null, "Watch out! There are monsters nearby!", "Final Fantasy", JOptionPane.DEFAULT_OPTION, mog);
         
         //creates a combat scene named "goblins"
         Combat goblins = new Combat(one,two,three,four,a,b,c,new ImageIcon("Field.png").getImage());

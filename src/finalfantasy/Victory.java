@@ -90,6 +90,8 @@ public class Victory {
        
         if(rest)
             party.rest(one, two, three, four);
+        
+        Music.play("Terra.wav");
     }
   }
 
