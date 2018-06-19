@@ -11,7 +11,7 @@ All of the art and music assets are from the Final Fantasy franchise by Square-E
 
 ![Battle](https://github.com/shuklak13/FinalFantasy/blob/master/screenshots/BattleScene.png)
 ![Town](https://github.com/shuklak13/FinalFantasy/blob/master/screenshots/Town.png)
-![Battle](https://github.com/shuklak13/FinalFantasy/screenshots/blob/master/BattleScene2.png)
-![Shop](https://github.com/shuklak13/FinalFantasy/screenshots/blob/master/Shop.png)
-![Battle](https://github.com/shuklak13/FinalFantasy/screenshots/blob/master/BattleScene3.png)
-![Character Screen](https://github.com/shuklak13/FinalFantasy/screenshots/blob/master/CharacterStatusScreen.png)
+![Battle](https://github.com/shuklak13/FinalFantasy/blob/master/screenshots/BattleScene2.png)
+![Shop](https://github.com/shuklak13/FinalFantasy/blob/master/screenshots/Shop.png)
+![Battle](https://github.com/shuklak13/FinalFantasy/blob/master/screenshots/BattleScene3.png)
+![Character Screen](https://github.com/shuklak13/FinalFantasy/blob/master/screenshots/CharacterStatusScreen.png)
