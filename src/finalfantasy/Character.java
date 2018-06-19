@@ -47,9 +47,7 @@ public class Character {
         jobclass = jobclass;
       
     }
-    Character(){
-    
-    }
+    Character(){}
     
     void name(String input, int cover){
         name = input;
@@ -305,30 +303,34 @@ public class Character {
    
     void calculate(){//calculates stats
         if(job==1){
-        hp = 82;
+        hp = 80;
         str = 7;
         mag = 2;
         agi = 4;
     }   if(job==2){
-        hp = 32;
+        hp = 35;
         str = 5;
         mag = 3;
-        agi = 7;
+        agi = 8;
     }   if(job==3){
-        hp = 54;
+        hp = 55;
         str = 10;
         mag = 1;
         agi = 5;
-    }   if(job==4 || job==5){
-        hp = 36;
-        str = 4;
+    }   if(job==4){
+        hp = 30;
+        str = 3;
+        mag = 7;
+        agi = 3;
+    }   if(job==5){
+        hp = 35;
+        str = 3;
         mag = 9;
         agi = 4;
-    }
-        if(job==6){
-        hp = 44;
+    }   if(job==6){
+        hp = 45;
         str = 6;
-        mag = 6;
+        mag = 4;
         agi = 4;
     }
     for(int i=0; i<3; i++){
