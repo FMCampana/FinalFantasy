@@ -22,7 +22,7 @@ public class Shop extends JPanel{
         int cost[];
         String info[];
                 
-        Image backdrop =new ImageIcon("shop.png").getImage();
+        Image backdrop = ImageFetcher.fetchImage("Shop.png");
         
         public void paintComponent(Graphics g) {
         g.drawImage(backdrop,0,0,null);}

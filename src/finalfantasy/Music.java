@@ -1,12 +1,10 @@
 package finalfantasy;
-import javax.swing.*;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.locks.ReentrantLock;
+import java.net.URL;
 
-public final class Music {
-    //ReentrantLock lock = new ReentrantLock();
+public class Music {
     private static Thread musicThread;
     private static Clip clip;
     private Music(){}
@@ -14,14 +12,14 @@ public final class Music {
       if(musicThread != null) terminateCurrentTrack();
       try {
         //https://stackoverflow.com/tags/javasound/info
-        File musicFile = new File("music/"+musicFileName);
+        URL musicResource = Music.class.getClassLoader().getResource("music/"+musicFileName);
+//        File musicFile = new File("music/"+musicFileName);
+//        File musicFile = new File(musicResource);
         clip = AudioSystem.getClip();
-        AudioInputStream ais = AudioSystem.getAudioInputStream(musicFile);
+        AudioInputStream ais = AudioSystem.getAudioInputStream(musicResource);
         clip.open(ais);
         clip.loop(Clip.LOOP_CONTINUOUSLY);
         
-//        Runnable player = new Runnable() { public void run() {  }  };
-//        SwingUtilities.invokeLater(player);
         musicThread = new Thread(new Runnable() { public void run() {  }  });
         musicThread.run();
         
@@ -35,8 +33,6 @@ public final class Music {
     }
     
     private static void terminateCurrentTrack(){
-      //lock.unlock();
-//      System.out.println("TERMINATING");
       musicThread.interrupt();
       clip.stop();
     }

@@ -33,7 +33,7 @@ public class monster extends finalfantasy.Character{
                 mag=18;
                 agi=7;
                 worth=80;
-                image=new ImageIcon("Garland.png");
+                image=ImageFetcher.fetchIcon("Garland.png");
             }
             if(name.startsWith("Pirate")){//pirate
                 hp=40;
@@ -41,7 +41,7 @@ public class monster extends finalfantasy.Character{
                 mag=2;
                 agi=7;
                 worth=15;
-                image=new ImageIcon("Pirate.png");
+                image=ImageFetcher.fetchIcon("Pirate.png");
             }
             if(name.startsWith("Bikke")){//bikke
                 hp=140;
@@ -49,7 +49,7 @@ public class monster extends finalfantasy.Character{
                 mag=2;
                 agi=7;
                 worth=60;
-                image=new ImageIcon("Bikke.png");
+                image=ImageFetcher.fetchIcon("Bikke.png");
             }
             if(name.startsWith("Tarantula")){//tarantula
                 hp=60;
@@ -57,7 +57,7 @@ public class monster extends finalfantasy.Character{
                 mag=2;
                 agi=8;
                 worth=20;
-                image=new ImageIcon("Tarantula.png");
+                image=ImageFetcher.fetchIcon("Tarantula.png");
             }
             if(name.equals("")){//null
                 hp=0;//automatically dead
@@ -69,14 +69,14 @@ public class monster extends finalfantasy.Character{
                 mag = 4;
                 agi = 5;
                 worth=10;
-                image=new ImageIcon("goblin.png");}
+                image=ImageFetcher.fetchIcon("goblin.png");}
             if(name.startsWith("Astos")){//astos
                 hp = 160;
                 str = 14;
                 mag = 10;
                 agi = 8;
                 worth=100;
-                image=new ImageIcon("Astos.png");
+                image=ImageFetcher.fetchIcon("Astos.png");
                 ability="Fire";}
             if(name.startsWith("Lich")){
                 hp = 210;
@@ -84,7 +84,7 @@ public class monster extends finalfantasy.Character{
                 mag = 17;
                 agi = 10;
                 worth=150;
-                image=new ImageIcon("Lich.png");
+                image=ImageFetcher.fetchIcon("Lich.png");
                 ability="Blizzara";
                 weakness="Fire";}
             if(name.endsWith("Kraken")){
@@ -93,7 +93,7 @@ public class monster extends finalfantasy.Character{
                 mag = 19;
                 agi = 11;
                 worth=155;
-                image=new ImageIcon("Kraken.png");
+                image=ImageFetcher.fetchIcon("Kraken.png");
                 ability="Ink";
                 weakness="Thunder";}
             if(name.endsWith("Marilith")){
@@ -102,7 +102,7 @@ public class monster extends finalfantasy.Character{
                 mag = 24;
                 agi = 12;
                 worth=160;
-                image=new ImageIcon("Marilith.png");
+                image=ImageFetcher.fetchIcon("Marilith.png");
                 ability="Fira";
                 weakness="Ice";}
             if(name.endsWith("Tiamat")){
@@ -111,14 +111,14 @@ public class monster extends finalfantasy.Character{
                 mag = 28;
                 agi = 15;
                 worth=165;
-                image=new ImageIcon("Tiamat.png");}
+                image=ImageFetcher.fetchIcon("Tiamat.png");}
             if(name.endsWith("Chaos")){
                 hp = 300;
                 str = 40;
                 mag = 35;
                 agi = 15;
                 worth=1000;
-                image=new ImageIcon("Chaos.png");}
+                image=ImageFetcher.fetchIcon("Chaos.png");}
         
         tempHP = hp;
         }
@@ -217,12 +217,12 @@ public class monster extends finalfantasy.Character{
                         if(targeted.death==0){spell=mag+generator.nextInt(5);
                             targeted.takeDamage(spell);//reduce enemy hp based on spell value
                             if(targeted.tempHP<=0)
-                                message[i]=new JLabel(targeted.name+" took "+spell+" damage. "+targeted.name+" was knocked out!",targeted.image,SwingConstants.LEFT);
+                                message[i]=new JLabel(targeted.name+" took "+spell+" damage. "+targeted.name+" was knocked out!",targeted.imageicon,SwingConstants.LEFT);
                             else if(blind && generator.nextInt(4)==0 && targeted.blind==false){//25% chance of blind if not already blinded
                                 targeted.inflictStatus("Blind");
-                                message[i]=new JLabel(targeted.name+" took "+spell+" damage. "+targeted.name+" was blinded!",targeted.image,SwingConstants.LEFT);}
+                                message[i]=new JLabel(targeted.name+" took "+spell+" damage. "+targeted.name+" was blinded!",targeted.imageicon,SwingConstants.LEFT);}
                             else
-                                message[i]=new JLabel(targeted.name+" took "+spell+" damage",targeted.image,SwingConstants.LEFT);}
+                                message[i]=new JLabel(targeted.name+" took "+spell+" damage",targeted.imageicon,SwingConstants.LEFT);}
                         i++;}
                 
                         JOptionPane.showMessageDialog(null,message,name+" cast " + ability + "!",JOptionPane.DEFAULT_OPTION);

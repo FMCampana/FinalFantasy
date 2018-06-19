@@ -45,25 +45,25 @@ public class Victory {
     labels[3]=new JLabel(" ");
 
          if(check1)
-    labels[4]=new JLabel(one.name+" leveled up!",one.image,JLabel.LEFT);
+    labels[4]=new JLabel(one.name+" leveled up!",one.imageicon,JLabel.LEFT);
          else{
              int need=one.lv*30-one.exp;
-            labels[4]=new JLabel("EXP until "+one.name+" levels up: "+need,one.image,JLabel.LEFT);}
+            labels[4]=new JLabel("EXP until "+one.name+" levels up: "+need,one.imageicon,JLabel.LEFT);}
          if(check2)
-    labels[5]=new JLabel(two.name+" leveled up!",two.image,JLabel.LEFT);
+    labels[5]=new JLabel(two.name+" leveled up!",two.imageicon,JLabel.LEFT);
          else{
              int need=two.lv*30-two.exp;
-            labels[5]=new JLabel("EXP until "+two.name+" levels up: "+need,two.image,JLabel.LEFT);}
+            labels[5]=new JLabel("EXP until "+two.name+" levels up: "+need,two.imageicon,JLabel.LEFT);}
          if(check3)
-    labels[6]=new JLabel(three.name+" leveled up!",three.image,JLabel.LEFT);
+    labels[6]=new JLabel(three.name+" leveled up!",three.imageicon,JLabel.LEFT);
          else{
              int need=three.lv*30-three.exp;
-            labels[6]=new JLabel("EXP until "+three.name+" levels up: "+need,three.image,JLabel.LEFT);}
+            labels[6]=new JLabel("EXP until "+three.name+" levels up: "+need,three.imageicon,JLabel.LEFT);}
          if(check4)
-    labels[7]=new JLabel(four.name+" leveled up!",four.image,JLabel.LEFT);
+    labels[7]=new JLabel(four.name+" leveled up!",four.imageicon,JLabel.LEFT);
          else{
              int need=four.lv*30-four.exp;
-            labels[7]=new JLabel("EXP until "+four.name+" levels up: "+need,four.image,JLabel.LEFT);}
+            labels[7]=new JLabel("EXP until "+four.name+" levels up: "+need,four.imageicon,JLabel.LEFT);}
          
             labels[8]=new JLabel(" ");
             
@@ -86,10 +86,12 @@ public class Victory {
     for(int i=0;i<labels.length;i++)//changes font
            labels[i].setFont(new Font("serif", Font.BOLD, 18));
     
-       JOptionPane.showMessageDialog(null, labels, "Final Fantasy", JOptionPane.DEFAULT_OPTION, new ImageIcon("Mog.gif"));//displays results
+       JOptionPane.showMessageDialog(null, labels, "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));//displays results
        
         if(rest)
             party.rest(one, two, three, four);
+        
+        Music.play("Terra.wav");
     }
   }
 

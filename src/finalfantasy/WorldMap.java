@@ -6,7 +6,6 @@ package finalfantasy;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.*;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,12 +19,11 @@ public class WorldMap extends JPanel{
     ArrayList<String> locations = new ArrayList<String>();
     Random generator = new Random();
     boolean fiendsSlain=false;//true when all fiends are slain, needed to enter final battle
-    //boolean fiendsSlain=true;
     
         Town cornelia = new Town("Cornelia");//Cornelia is the only town the player begins with
         Town pravoka,elfheim,melmond,lufenia,crescent;//the other towns are declared, but only created once unlocked
     
-        Image backdrop = new ImageIcon("map.jpg").getImage();
+        Image backdrop = ImageFetcher.fetchImage("map.jpg");
     
     public void paintComponent(Graphics g) {
         int w=(int)(backdrop.getWidth(this));
@@ -36,13 +34,14 @@ public class WorldMap extends JPanel{
         locations.add("Cornelia");
         
         //following are for testing purposes
-        addPravoka();
-        addElfheim();
-        addDungeon("Cavern of Earth");
-        addDungeon("Sunken Shrine");
-        addLufenia();
-        addCrescent();
-        addDungeon("Mount Gulug");
+//        addPravoka();
+//        addElfheim();
+//        addDungeon("Cavern of Earth");
+//        addDungeon("Sunken Shrine");
+//        addLufenia();
+//        addCrescent();
+//        addDungeon("Mount Gulug");
+          //fiendsSlain=true;
     }
     
     void addDungeon(String dungeon){
@@ -85,7 +84,7 @@ public class WorldMap extends JPanel{
         
         mapScreen.setResizable(false);
         mapScreen.add(new WorldMap());
-        mapScreen.setIconImage(new ImageIcon("map.jpg").getImage());
+        mapScreen.setIconImage(ImageFetcher.fetchImage("map.jpg"));
         mapScreen.setVisible(true);
         
         
@@ -101,7 +100,7 @@ public class WorldMap extends JPanel{
             locationArray[locations.size()+2] = "LV Up";
             
     int input= JOptionPane.showOptionDialog(null, "What do you wish to do?", 
-                "World Map", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, new ImageIcon("mog.gif"), 
+                "World Map", JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, ImageFetcher.fetchIcon("mog.gif"), 
                 locationArray, locationArray[0]);
     
         if(input==locations.size()){//random battle
@@ -111,7 +110,7 @@ public class WorldMap extends JPanel{
         monster d = new monster("Pirate A");
         monster e = new monster("Pirate B");
         monster f = new monster("Pirate C");
-        Combat pirates = new Combat(one,two,three,four,d,e,f,new ImageIcon("Ship.png").getImage());
+        Combat pirates = new Combat(one,two,three,four,d,e,f, ImageFetcher.fetchImage("Ship.png"));
         pirates.intro("pirate",d);
         kb.nextLine();
         pirates.battle(one,two,three,four,d,e,f,party,d);
@@ -120,7 +119,7 @@ public class WorldMap extends JPanel{
         monster g = new monster("Tarantula A");
         monster h = new monster("Tarantula B");
         monster i = new monster("Tarantula C");
-        Combat tarantula = new Combat(one,two,three,four,g,h,i,new ImageIcon("Field.png").getImage());
+        Combat tarantula = new Combat(one,two,three,four,g,h,i, ImageFetcher.fetchImage("Field.png"));
         tarantula.intro("tarantula",g);
         kb.nextLine();
         tarantula.battle(one,two,three,four,g,h,i,party,g);
@@ -129,7 +128,7 @@ public class WorldMap extends JPanel{
         monster a = new monster("Goblin A");
         monster b = new monster("Goblin B");
         monster c = new monster("Goblin C");
-        Combat goblins = new Combat(one,two,three,four,a,b,c,new ImageIcon("Field.png").getImage());
+        Combat goblins = new Combat(one,two,three,four,a,b,c, ImageFetcher.fetchImage("Field.png"));
         goblins.intro("goblin",a);
         goblins.battle(one,two,three,four,a,b,c,party,a);
         break;
@@ -183,15 +182,15 @@ public class WorldMap extends JPanel{
         }
     
     void westernKeep(Character one, Character two, Character three, Character four, Party party){
-        JOptionPane.showMessageDialog(null, "You see the dark elf, Astos", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "You see the dark elf, Astos", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
         monster g = new monster("Astos");
         monster b = new monster("");
         monster c = new monster("");
-        Combat astos = new Combat(one,two,three,four,g,b,c,new ImageIcon("Western_Keep.png").getImage());
+        Combat astos = new Combat(one,two,three,four,g,b,c, ImageFetcher.fetchImage("Western_Keep.png"));
         astos.intro("Astos",g);
         astos.battle(one,two,three,four,g,b,c,party,g);
-        JOptionPane.showMessageDialog(null, "After defeating Astos, you return to Elfheim with the prince", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
-        JOptionPane.showMessageDialog(null, "King: Thank you, Light Warriors! Quickly, sail to the town of Melmond, and save the earth crystal!\nThe Elf King gave you 200 gil!", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Elf_King.png"));
+        JOptionPane.showMessageDialog(null, "After defeating Astos, you return to Elfheim with the prince", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "King: Thank you, Light Warriors! Quickly, sail to the town of Melmond, and save the earth crystal!\nThe Elf King gave you 200 gil!", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Elf_King.png"));
         party.addGil(200);
         difficulty++;
         addMelmond();
@@ -203,95 +202,96 @@ public class WorldMap extends JPanel{
             monster g = new monster("Garland");
             monster b = new monster("");
             monster c = new monster("");
-            Combat garland = new Combat(one,two,three,four,g,b,c,new ImageIcon("Chaos_Shrine.png").getImage());
+            Combat garland = new Combat(one,two,three,four,g,b,c, ImageFetcher.fetchImage("Chaos_Shrine.png"));
             garland.intro("Garland",g);
             garland.battle(one,two,three,four,g,b,c,party,g);
-            JOptionPane.showMessageDialog(null, "After defeating Garland, you return to Cornelia with the princess", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
-            JOptionPane.showMessageDialog(null, "Thank you, Light Warriors! Go to the town of Pravoka, a port city where you will be able to set sail! \n *The King gave you 100 gil*", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("King.png"));
+            JOptionPane.showMessageDialog(null, "After defeating Garland, you return to Cornelia with the princess", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
+            JOptionPane.showMessageDialog(null, "Thank you, Light Warriors! Go to the town of Pravoka, a port city where you will be able to set sail! \n *The King gave you 100 gil*", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("King.png"));
             party.addGil(100);
             difficulty++;
             addPravoka();
             locations.remove("Temple of Chaos");}
         else{//second visit
-            JOptionPane.showMessageDialog(null, "Ah... I remember you. \n\nThe last time we fought I was much weaker. You may have noticed the destruction I have wrought since then. Terrible, isn't it?\n\nReady to fight again? Not so fast! My pretties would like to kill you first!", "Garland...?", JOptionPane.DEFAULT_OPTION,new ImageIcon("Garland.png"));
-            monster g = new monster("Lich the Unholy Troll");
+            JOptionPane.showMessageDialog(null, "Ah... I remember you. \n\nThe last time we fought I was much weaker. You may have noticed the destruction I have wrought since then. Terrible, isn't it?\n\nReady to fight again? Not so fast! My pretties would like to kill you first!", "Garland...?", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Garland.png"));
+            monster g = new monster("Lich the Unholy");
             monster b = new monster("Kraken");
             monster c = new monster("");
-            Combat garland = new Combat(one,two,three,four,g,b,c,new ImageIcon("Chaos_Shrine.png").getImage());
+            Combat garland = new Combat(one,two,three,four,g,b,c, ImageFetcher.fetchImage("Chaos_Shrine.png"));
             garland.battle(one,two,three,four,g,b,c,party,new monster("Garland"),false);//no rest after this battle!
-            JOptionPane.showMessageDialog(null, "Wait! That's not all!", "Garland...?", JOptionPane.DEFAULT_OPTION,new ImageIcon("Garland.png"));
+            JOptionPane.showMessageDialog(null, "Wait! That's not all!", "Garland...?", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Garland.png"));
             g = new monster("Marilith");
             b = new monster("Tiamat");
-            garland = new Combat(one,two,three,four,g,b,c,new ImageIcon("Chaos_Shrine.png").getImage());
+            garland = new Combat(one,two,three,four,g,b,c, ImageFetcher.fetchImage("Chaos_Shrine.png"));
             garland.battle(one,two,three,four,g,b,c,party,new monster("Garland"),false);
-            JOptionPane.showMessageDialog(null, "Urgh!... So you've defeated all of my fiends...\n\nVery well, then. I suppose I must show you why this place is called the Temple of Chaos. \n\nThis was the home of the king of evil many centuries ago. He has died, but his soul lived on... in me! Chaos!", "Garland...?", JOptionPane.DEFAULT_OPTION,new ImageIcon("Garland.png"));
+            JOptionPane.showMessageDialog(null, "Urgh!... So you've defeated all of my fiends...\n\nVery well, then. I suppose I must show you why this place is called the Temple of Chaos. \n\nThis was the home of the king of evil many centuries ago. He has died, but his soul lived on... in me! Chaos!", "Garland...?", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Garland.png"));
             g = new monster("Chaos");
             b = new monster("");
-            garland = new Combat(one,two,three,four,c,b,g,new ImageIcon("Final_Battle.png").getImage());
+            garland = new Combat(one,two,three,four,c,b,g, ImageFetcher.fetchImage("Final_Battle.png"));
             garland.intro("Chaos",g);
             garland.battle(one,two,three,four,g,b,c,party,g,false);
-            JOptionPane.showMessageDialog(null, "What!?! No... this isn't possible... you've defeated me? Is this true?\n\nI was so powerful... what went wrong... \n\nnooooooooooooooo!!!!!!!!!!!!!!!!!!", "Chaos, King of Evil", JOptionPane.DEFAULT_OPTION,new ImageIcon("Chaos.png"));
+            JOptionPane.showMessageDialog(null, "What!?! No... how did you defeat me? \nI was so powerful... \nnooooooooooooooo!!!!!!!!!!!!!!!!", "Chaos, King of Evil", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Chaos.png"));
+            JOptionPane.showMessageDialog(null, "Congrats! You beat the game!", "Mog", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
             
                 }
     }
     void cavernOfEarth(Character one, Character two, Character three, Character four, Party party){
-        monster g = new monster("Lich the Unholy Troll");
-        monster b = new monster("");
+        monster b = new monster("Lich the Unholy");
+        monster g = new monster("");
         monster c = new monster("");
-        Combat lich = new Combat(one,two,three,four,b,c,g,new ImageIcon("Cavern_of_Earth.png").getImage());
-        lich.intro("Lich the Unholy Troll",g);
-        lich.battle(one,two,three,four,g,b,c,party,g);
-        JOptionPane.showMessageDialog(null, "After defeating the unholy troll, you return to Melmond.", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
+        Combat lich = new Combat(one,two,three,four,b,c,g, ImageFetcher.fetchImage("Cavern_of_Earth.png"));
+        lich.intro("Lich the Unholy",b);
+        lich.battle(one,two,three,four,g,b,c,party,b);
+        JOptionPane.showMessageDialog(null, "After defeating Lich, you return to Melmond.", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
         JOptionPane.showMessageDialog(null, "Thank you, Light Warriors! By the way, do you plan on visiting to the Sunken Shrine anytime soon?"
-                + " \n I would love to see the fabled Rosetta Stone hidden away down there. I'll even fund your research! \n\t*The Good Doctor gave you 300 gil*", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("dr_unne.png"));
+                + " \n I would love to see the fabled Rosetta Stone hidden away down there. I'll even fund your research! \n\t*The Good Doctor gave you 300 gil*", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("dr_unne.png"));
         party.addGil(300);
         difficulty++;
         addDungeon("Sunken Shrine");
         locations.remove("Cavern of Earth");}
     
     void sunkenShrine(Character one, Character two, Character three, Character four, Party party){
-        JOptionPane.showMessageDialog(null, "You explore the Sunken Shrine, searching for the\nRosetta Stone, when you come across a massive beast!", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "You explore the Sunken Shrine, searching for the\nRosetta Stone, when you come across a massive beast!", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
         monster g = new monster("Kraken");
         monster b = new monster("");
         monster c = new monster("");
-        Combat kraken = new Combat(one,two,three,four,b,g,c,new ImageIcon("Sunken_Shrine.png").getImage());
+        Combat kraken = new Combat(one,two,three,four,b,g,c, ImageFetcher.fetchImage("Sunken_Shrine.png"));
         kraken.intro("Kraken",g);
         kraken.battle(one,two,three,four,b,g,c,party,g);
-        JOptionPane.showMessageDialog(null, "You return to Melmond with the Rosetta Stone.", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
-        JOptionPane.showMessageDialog(null, "Ah the Rosetta Stone! It translates the strange language of Lufenian... here, you keep it!\nWith this, you can communicate with the Lufenian peoples!\n\n*unlocked Lufenia*", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("dr_unne.png"));
+        JOptionPane.showMessageDialog(null, "You return to Melmond with the Rosetta Stone.", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "Ah the Rosetta Stone! It translates the strange language of Lufenian... here, you keep it!\nWith this, you can communicate with the Lufenian peoples!\n\n*unlocked Lufenia*", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("dr_unne.png"));
         party.remove("Item","Rosetta Stone");
         difficulty++;
         addLufenia();
         locations.remove("Sunken Shrine");
     }
     void mountGulug(Character one, Character two, Character three, Character four, Party party){
-        JOptionPane.showMessageDialog(null, "You enter the fiery mountain. The heat heats you.", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "You enter the fiery mountain. The heat heats you.", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
         monster g = new monster("Marilith");
         monster b = new monster("");
         monster c = new monster("");
-        Combat marilith = new Combat(one,two,three,four,b,g,c,new ImageIcon("Mount_Gulg.png").getImage());
+        Combat marilith = new Combat(one,two,three,four,b,g,c, ImageFetcher.fetchImage("Mount_Gulg.png"));
         marilith.intro("Marilith",g);
         marilith.battle(one,two,three,four,b,g,c,party,g);
-        JOptionPane.showMessageDialog(null, "You return to Crescent Lake.", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
-        JOptionPane.showMessageDialog(null, "You truly have defeated the fiend of fire? You have out trust. Tell the Lufenian Elder of our words.", "Lukahn", JOptionPane.DEFAULT_OPTION,new ImageIcon("Lukahn.png"));
+        JOptionPane.showMessageDialog(null, "You return to Crescent Lake.", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "You truly have defeated the fiend of fire? You have out trust. Tell the Lufenian Elder of our words.", "Lukahn", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Lukahn.png"));
         difficulty++;
         locations.remove("Mount Gulug");
         lufenia.trust=true;
         lufenia.choices.add("Talk to the Lufenian Elder");
     }
     void fortress(Character one, Character two, Character three, Character four, Party party){
-        JOptionPane.showMessageDialog(null, "You fly through the skies! \nAbove the clouds! \nOver the wind! \nAnd there you see...", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
-        JOptionPane.showMessageDialog(null, "A monstrous castle...", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
-        JOptionPane.showMessageDialog(null, "You enter it, and discover the final fiend: a gargantuan dragon!", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "You fly through the skies! \nAbove the clouds! \nOver the wind! \nAnd there you see...", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "A monstrous castle...", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "You enter it, and discover the final fiend: a gargantuan dragon!", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
         monster g = new monster("Tiamat");
         monster b = new monster("");
         monster c = new monster("");
-        Combat tiamat = new Combat(one,two,three,four,b,g,c,new ImageIcon("Mount_Gulg.png").getImage());//FIX THIS!!!!!!
+        Combat tiamat = new Combat(one,two,three,four,b,g,c, ImageFetcher.fetchImage("Mount_Gulg.png"));
         tiamat.intro("Tiamat",g);
         tiamat.battle(one,two,three,four,b,g,c,party,g);
-        JOptionPane.showMessageDialog(null, "The final fiend slain, your team returns to Cid to tell him of this news.", "Final Fantasy", JOptionPane.DEFAULT_OPTION,new ImageIcon("Mog.gif"));
+        JOptionPane.showMessageDialog(null, "The final fiend slain, your team returns to Cid to tell him of this news.", "Final Fantasy", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Mog.gif"));
         JOptionPane.showMessageDialog(null, "Amazing... all four fiends slain... this is no fluke. YOU are the LIGHT WARRIORS!\n\n"
-                + "Return to the Temple of Chaos, home of the evil knight Garland! Now that darkness has been banished from the land, you must destroy its source!", "Cid, the Lufenian Elder", JOptionPane.DEFAULT_OPTION,new ImageIcon("Cid.png"));
+                + "Return to the Temple of Chaos, home of the evil knight Garland! Now that darkness has been banished from the land, you must destroy its source!", "Cid, the Lufenian Elder", JOptionPane.DEFAULT_OPTION, ImageFetcher.fetchIcon("Cid.png"));
         difficulty++;
         locations.remove("Flying Fortress");
         addDungeon("Temple of Chaos");

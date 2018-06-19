@@ -17,7 +17,7 @@ import sun.audio.*;
 public class FinalFantasy extends JPanel{
 
     public static void main(String[] args) {
-        int input, choice;
+        int choice;
         
        //Most of the following is character generation
         Character one = new Character();
@@ -27,13 +27,13 @@ public class FinalFantasy extends JPanel{
         
         Party party = new Party();
         
-        ImageIcon warrior = new ImageIcon("Warrior.png","Warrior");
-        ImageIcon thief = new ImageIcon("Thief.png","Thief");
-        ImageIcon monk = new ImageIcon("Monk.png","Monk");
-        ImageIcon blackMage = new ImageIcon("BlackMage.png","Black Mage");
-        ImageIcon whiteMage = new ImageIcon("WhiteMage.png","White Mage");
-        ImageIcon redMage = new ImageIcon("RedMage.png","Red Mage");
-        ImageIcon mog = new ImageIcon("Mog.gif","Moogle");
+        ImageIcon warrior = ImageFetcher.fetchIcon("Warrior.png");
+        ImageIcon thief = ImageFetcher.fetchIcon("Thief.png");
+        ImageIcon monk = ImageFetcher.fetchIcon("Monk.png");
+        ImageIcon blackMage = ImageFetcher.fetchIcon("BlackMage.png");
+        ImageIcon whiteMage = ImageFetcher.fetchIcon("WhiteMage.png");
+        ImageIcon redMage = ImageFetcher.fetchIcon("RedMage.png");
+        ImageIcon mog = ImageFetcher.fetchIcon("Mog.gif");
         
         //The game starts here
 
@@ -99,10 +99,10 @@ public class FinalFantasy extends JPanel{
         monster b = new monster("Goblin B");
         monster c = new monster("Goblin C");
         
-        JOptionPane.showMessageDialog(null, "Watch out! They're monsters nearby!", "Final Fantasy", JOptionPane.DEFAULT_OPTION, mog);
+        JOptionPane.showMessageDialog(null, "Watch out! There are monsters nearby!", "Final Fantasy", JOptionPane.DEFAULT_OPTION, mog);
         
         //creates a combat scene named "goblins"
-        Combat goblins = new Combat(one,two,three,four,a,b,c,new ImageIcon("Field.png").getImage());
+        Combat goblins = new Combat(one,two,three,four,a,b,c, ImageFetcher.fetchImage("Field.png"));
         goblins.intro("goblin",a);//add "this" to intro to allow editing of the jframe?
         goblins.targets(a, b, c);
         

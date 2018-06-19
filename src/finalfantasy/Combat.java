@@ -38,9 +38,9 @@ public class Combat extends JPanel{
         else if(name.equals("Bikke"))
             JOptionPane.showMessageDialog(null, "Bikke: Ye want to take back this port? Ye'll have to get through me first!", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
         else if(name.equals("Astos"))
-            JOptionPane.showMessageDialog(null, "Astos: You want to rescueThranduil Tasartir? You'll have to pay a ransom... a ransom of blood!", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
-        else if(name.equals("Lich the Unholy Troll"))
-            JOptionPane.showMessageDialog(null, "Lich the Unholy Troll: @!#%#$^@*#$%!#$", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
+            JOptionPane.showMessageDialog(null, "Astos: You want to rescue the elf prince? You'll have to pay a ransom... a ransom of blood!", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
+        else if(name.equals("Lich the Unholy"))
+            JOptionPane.showMessageDialog(null, "Lich the Unholy: @!#%#$^@*#$%!#$", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
         else if(name.equals("Kraken"))
             JOptionPane.showMessageDialog(null, "Kraken: Hohoho! Exploring the depths, I see.\nCan't let you roam in my waters!", "Final Fantasy", JOptionPane.WARNING_MESSAGE, b.image);
         else if(name.equals("Marilith"))
@@ -57,21 +57,13 @@ public class Combat extends JPanel{
             Image bd) {
         
         backdrop=bd;
-        i1=one.image;
-        i2=two.image;
-        i3=three.image;
-        i4=four.image;
+        i1=one.imageicon;
+        i2=two.imageicon;
+        i3=three.imageicon;
+        i4=four.imageicon;
         ia=a.image;
         ib=b.image;
         ic=c.image;
-    
-        Character ek=one;
-        Character dough=two;
-        Character theen=three;
-        Character chaar=four;
-        monster ah=a;
-        monster beh=b;
-        monster se=c;
         }
         
         
@@ -124,10 +116,10 @@ if(cdeath==false&&ic!=null)g.drawImage(ic.getImage(),(int)w*1/5,(int)h*7/12,null
         
         if(self.job==6)//Red Mages have 2 job abilities instead of one, and thus need a special interface
             return 1+JOptionPane.showOptionDialog(null, "Input commands for " + self.name + " (HP: " + self.tempHP + "/" + self.hp + ") (Status: "+status+")", 
-                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, self.image, self.commandsRed, self.commandsRed[0]);
+                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, self.imageicon, self.commandsRed, self.commandsRed[0]);
         else
             return 1+JOptionPane.showOptionDialog(null, "Input commands for " + self.name + " (HP: " + self.tempHP + "/" + self.hp + ") (Status: "+status+")", 
-                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, self.image, self.commands, self.commands[0]);
+                "Battle!", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, self.imageicon, self.commands, self.commands[0]);
 }
     
     
